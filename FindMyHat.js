@@ -47,9 +47,7 @@ class Field {
   //other methods in the class
   runGame() {
     this.setStart(); //start the random position of my char
-    do {
-      this.setHat();
-    } while (this.setStart == pathCharacter); //start the random position of my hat
+    this.setHat(); //start the random position of my hat
 
     let gameStart = true;
     while (gameStart) {
@@ -65,6 +63,10 @@ class Field {
         break;
       } else if (this.isHat()) {
         console.log("Congrats, you found your Girlfriend!!");
+        gameStart = false;
+        break;
+      } else if ("STOP") {
+        console.log("YOu Break the game");
         gameStart = false;
         break;
       }
@@ -90,7 +92,9 @@ class Field {
     console.log(
       "Reach the girl (👧) without falling in the holes (⛔) or falling off the board."
     );
-    console.log("Enter W(Up), S(Down), A(Left) and D(Right).\n");
+    console.log(
+      "Enter W(Up), S(Down), A(Left) and D(Right) or (STOP) to stop game again.\n"
+    );
     this.field.forEach((element) => console.log(element.join("")));
   }
 
@@ -108,6 +112,8 @@ class Field {
         break;
       case "D":
         this.locationX += 1;
+        break;
+      case "STOP":
         break;
       default:
         console.log("Enter W, A, S or D");
