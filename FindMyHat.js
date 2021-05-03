@@ -65,10 +65,6 @@ class Field {
         console.log("Congrats, you found your Girlfriend!!");
         gameStart = false;
         break;
-      } else if ("STOP") {
-        console.log("YOu Break the game");
-        gameStart = false;
-        break;
       }
       // Update current location on map
       this.field[this.locationY][this.locationX] = pathCharacter;
@@ -93,7 +89,7 @@ class Field {
       "Reach the girl (👧) without falling in the holes (⛔) or falling off the board."
     );
     console.log(
-      "Enter W(Up), S(Down), A(Left) and D(Right) or (STOP) to stop game again.\n"
+      "Enter W(Up), S(Down), A(Left) and D(Right).\n"
     );
     this.field.forEach((element) => console.log(element.join("")));
   }
@@ -112,8 +108,6 @@ class Field {
         break;
       case "D":
         this.locationX += 1;
-        break;
-      case "STOP":
         break;
       default:
         console.log("Enter W, A, S or D");
